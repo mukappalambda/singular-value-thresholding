@@ -1,0 +1,34 @@
+# Singular Value Thresholding
+
+This repo provides a Python implementation for Singular Value Thresholding (SVT) algorithm, and illustrate one of its application: image inpainting.
+
+The image I use is downloaded from [Pexels](https://www.pexels.com/), which is a website that provides a variety of free images.
+
+The main reference is the following:
+
+- Jian-Feng Cai, Emmanuel J. Candes, Zuowei Shen, [A Singular Value Thresholding Algorithm for Matrix Completion](https://arxiv.org/abs/0810.3286)
+
+---
+
+## Instructions
+
+Create the virtual environment (assuming that the [Pipenv](https://github.com/pypa/pipenv) library is installed):
+
+```python
+pipenv install
+pipenv shell
+```
+
+Run the code:
+
+```python
+python main.py
+```
+
+Results:
+
+![Original image](landscape.jpg?raw=true 'Original image')
+
+![Impaired image](output_folder/impaired.png?raw=true 'Impaired image')
+
+![Recovered image](output_folder/recovered.png?raw=true 'Recovered image')
