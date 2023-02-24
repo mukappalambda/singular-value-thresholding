@@ -12,16 +12,16 @@ The main reference is the following:
 
 ## Instructions
 
-Create the virtual environment (assuming that the [Pipenv](https://github.com/pypa/pipenv) library is installed):
+Create the virtual environment (assuming that the [poetry](https://github.com/python-poetry/poetry) library is installed):
 
-```python
-pipenv install
-pipenv shell
+```bash
+poetry install
+poetry shell
 ```
 
 Run the code:
 
-```python
+```bash
 python main.py
 ```
 

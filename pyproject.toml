@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "singular-value-thresholding"
+version = "0.1.0"
+description = ""
+authors = ["mukappalambda <maokailan24@gmail.com>"]
+readme = "README.md"
+packages = [{include = "singular_value_thresholding"}]
+
+[tool.poetry.dependencies]
+python = ">=3.9,<3.12"
+numpy = "^1.24.2"
+scipy = "^1.10.1"
+pillow = "^9.4.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
