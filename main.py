@@ -12,18 +12,28 @@ def resize_image(img, width: int):
     return img.resize((width, height))
 
 
-def gen_mask(A: np.ndarray, pct: float, random_seed: int) -> np.ndarray:
+def gen_mask(A: np.ndarray, pct: float, random_state: int = 0) -> np.ndarray:
+    """
+    Examples
+    --------
+    >>> mask = gen_mask(arr, pct=0.1, random_state=123)
+    """
     shape = A.shape
     ndims = np.prod(shape, dtype=np.int32)
     mask = np.full(ndims, False)
     mask[: int(pct * ndims)] = True
-    np.random.seed(random_seed)
+    np.random.seed(random_state)
     np.random.shuffle(mask)
     mask = mask.reshape(shape)
     return mask
 
 
-def draw_image(arr: np.ndarray, height: int, width: int, fname: str):
+def draw_image(
+    arr: np.ndarray,
+    height: int,
+    width: int,
+    fname: str,
+):
     img = Image.fromarray(
         np.clip(arr, 0, 255).astype(np.uint8).reshape(height, width, -1)
     )
@@ -31,6 +41,9 @@ def draw_image(arr: np.ndarray, height: int, width: int, fname: str):
 
 
 def main():
+    """
+    Main
+    """
     fname = "landscape.jpg"
     raw_img = Image.open(fname)
     width = 2048
@@ -49,26 +62,26 @@ def main():
     # percentage of sampled pixels
     pct = 0.1
     # for reproducibility
-    random_seed = 1234
-    mask = gen_mask(A=img, pct=pct, random_seed=random_seed)
+    random_state = 1234
+    mask = gen_mask(A=img, pct=pct, random_state=random_state)
 
-    max_iterations = 200
+    n_iters = 300
     X = svt_solver(
         M=scaled_img,
         mask=mask,
-        n_iters=max_iterations,
-        tol=0.2,
-        random_state=random_seed,
+        n_iters=n_iters,
+        tol=0.1,
+        random_state=random_state,
     )
+    X = np.clip(X, a_min=0, a_max=1) * 255
 
     path = Path("./output_folder")
+    impaired_img_path = path.joinpath("impaired.png")
+    recovered_img_path = path.joinpath("recovered.png")
+    path.mkdir(parents=True, exist_ok=True)
 
-    if not path.is_dir():
-        path.mkdir()
-
-    # draw_image(img, height, width, path/"original.png")
-    draw_image(mask * img, height, width, path / "impaired.png")
-    draw_image(X * 255, height, width, path / "recovered.png")
+    draw_image(mask * img, height, width, impaired_img_path.as_posix())
+    draw_image(X, height, width, recovered_img_path.as_posix())
 
 
 if __name__ == "__main__":
