@@ -3,36 +3,8 @@ from pathlib import Path
 import numpy as np
 from PIL import Image
 
-from svt.common import resize_image
+from svt.common import draw_image, gen_mask, resize_image
 from svt.svt_helpers import svt_solver
-
-
-def gen_mask(A: np.ndarray, pct: float, random_state: int = 0) -> np.ndarray:
-    """
-    Examples
-    --------
-    >>> mask = gen_mask(arr, pct=0.1, random_state=123)
-    """
-    shape = A.shape
-    ndims = np.prod(shape, dtype=np.int32)
-    mask = np.full(ndims, False)
-    mask[: int(pct * ndims)] = True
-    np.random.seed(random_state)
-    np.random.shuffle(mask)
-    mask = mask.reshape(shape)
-    return mask
-
-
-def draw_image(
-    arr: np.ndarray,
-    height: int,
-    width: int,
-    fname: str,
-):
-    img = Image.fromarray(
-        np.clip(arr, 0, 255).astype(np.uint8).reshape(height, width, -1)
-    )
-    img.save(fname)
 
 
 def main():
@@ -41,7 +13,7 @@ def main():
     """
     fname = "landscape.jpg"
     raw_img = Image.open(fname)
-    width = 2048
+    width = 600
     img = resize_image(raw_img, (width, width))
     print(f"Raw image size: {raw_img.size}")  # (6000, 4000)
     print(f"Resized image size: {img.size}")  # (2048, 1365)
