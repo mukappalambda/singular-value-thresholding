@@ -3,7 +3,7 @@ from pathlib import Path
 import numpy as np
 from PIL import Image
 
-from svt_helpers import svt_solver
+from svt.svt_helpers import svt_solver
 
 
 def resize_image(img, width: int):
