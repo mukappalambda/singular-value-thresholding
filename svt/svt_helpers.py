@@ -42,7 +42,6 @@ def svt_solver(
     print(r_prev)
 
     for i in range(n_iters):
-
         k = r_prev + 1
 
         # if (i + 1) % 50 == 0:
