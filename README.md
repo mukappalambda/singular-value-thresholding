@@ -10,7 +10,15 @@ The main reference is the following:
 
 ---
 
-## Instructions
+## Install SVT
+
+**Method 1**
+
+```bash
+pip install git+https://github.com/mukappalambda/singular-value-thresholding.git@main
+```
+
+**Method 2**
 
 Create the virtual environment (assuming that the [poetry](https://github.com/python-poetry/poetry) library is installed):
 
@@ -18,6 +26,14 @@ Create the virtual environment (assuming that the [poetry](https://github.com/py
 poetry install
 poetry shell
 ```
+
+## Uninstall SVT
+
+```bash
+pip uninstall -y svt
+```
+
+---
 
 Run the code:
 
