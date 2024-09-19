@@ -1,9 +1,11 @@
 [tool.poetry]
 name = "svt"
 version = "0.1.0"
-description = ""
+description = "A Python implementation of the Singular Value Thresholding algorithm"
 authors = ["mukappalambda <maokailan24@gmail.com>"]
 readme = "README.md"
+license = "MIT"
+repository = "https://github.com/mukappalambda/singular-value-thresholding"
 
 [tool.poetry.scripts]
 svt-cli = "svt.cli:main"
