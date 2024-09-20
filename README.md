@@ -65,6 +65,6 @@ Results:
 
 ![Original image](landscape.jpg?raw=true 'Original image')
 
-![Impaired image](output_folder/impaired.png?raw=true 'Impaired image')
+![Impaired image](assets/impaired.png?raw=true 'Impaired image')
 
-![Recovered image](output_folder/recovered.png?raw=true 'Recovered image')
+![Recovered image](assets/recovered.png?raw=true 'Recovered image')
