@@ -37,8 +37,28 @@ pip uninstall -y svt
 
 Run the code:
 
-```bash
-python main.py
+```console
+$ svt-cli --help
+
+ Usage: svt-cli [OPTIONS] /path/to/image
+
+ Examples:
+ $ svt-cli ./input.png
+ $ svt-cli ./input.png --pct 0.2
+ $ svt-cli ./input.png --it 150
+
+╭─ Arguments ──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
+│ *    fname      /path/to/image  input image path [default: None] [required]                                                                                                                                  │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+╭─ Options ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
+│ --random-state              INTEGER RANGE [x>=0]       random state [default: None]                                                                                                                          │
+│ --width                     INTEGER RANGE [x>=0]       resize width; smaller width for faster convergence. [default: 500]                                                                                    │
+│ --pct                       FLOAT RANGE [0.0<=x<=1.0]  mask percentage; higher percentage for faster convergence [default: 0.1]                                                                              │
+│ --it                        INTEGER RANGE [x>=0]       maximum iterations [default: 100]                                                                                                                     │
+│ --install-completion                                   Install completion for the current shell.                                                                                                             │
+│ --show-completion                                      Show completion for the current shell, to copy it or customize the installation.                                                                      │
+│ --help                                                 Show this message and exit.                                                                                                                           │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
 ```
 
 Results:
