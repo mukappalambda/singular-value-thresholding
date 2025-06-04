@@ -1,28 +1,23 @@
-[tool.poetry]
+[project]
 name = "svt"
 version = "0.1.0"
 description = "A Python implementation of the Singular Value Thresholding algorithm"
-authors = ["mukappalambda <maokailan24@gmail.com>"]
+authors = [
+	{name = "mukappalambda",email = "maokailan24@gmail.com"}
+]
 readme = "README.md"
 license = "MIT"
 repository = "https://github.com/mukappalambda/singular-value-thresholding"
+requires-python = ">=3.10,<3.14"
+dependencies = [
+    "numpy (>=1.24)",
+    "scipy (>=1.10)",
+    "pillow (>=10.3.0)",
+    "typer (>=0.12.5)"
+]
 
-[tool.poetry.scripts]
+[project.scripts]
 svt-cli = "svt.cli:app"
-
-[tool.poetry.dependencies]
-python = ">=3.9,<3.13"
-numpy = [
-    {version = ">=1.24", python = ">=3.9,<3.12"},
-    {version = ">=1.26", python = ">=3.12,<3.13"},
-]
-scipy = [
-    {version = ">=1.10", python = ">=3.9,<3.12"},
-    {version = ">=1.12", python = ">=3.12,<3.13"},
-]
-pillow = "^10.3.0"
-typer = "^0.12.5"
-
 
 [build-system]
 requires = ["poetry-core"]
