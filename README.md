@@ -1,8 +1,8 @@
 # Singular Value Thresholding
 
-This repo provides a Python implementation for Singular Value Thresholding (SVT) algorithm, and illustrate one of its application: image inpainting.
+This repo provides a Python implementation for the Singular Value Thresholding (SVT) algorithm, and illustrate one of its application: image inpainting.
 
-The image I use is downloaded from [Pexels](https://www.pexels.com/), which is a website that provides a variety of free images.
+The images I use are downloaded from [Pexels](https://www.pexels.com/), which is a website that provides a variety of free images.
 
 The main reference is the following:
 
@@ -10,24 +10,28 @@ The main reference is the following:
 
 ---
 
-## Install SVT
+## Installing SVT
 
-**Method 1**
+**Install from GitHub using `pip`**
 
 ```bash
 pip install git+https://github.com/mukappalambda/singular-value-thresholding.git@main
 ```
 
-**Method 2**
+**Install in a virtual environment from source using `poetry`**
+
+> Note that poetry v2 is required in this case.
 
 Create the virtual environment (assuming that the [poetry](https://github.com/python-poetry/poetry) library is installed):
 
 ```bash
-poetry install
-poetry shell
+poetry install ## Install the package
+$(poetry env activate) ## Enter into the virtual environment
+svt-cli --help ## Check that svt-cli has been installed
+deactivate ## Exit the virtual environment
 ```
 
-## Uninstall SVT
+## Uninstalling SVT
 
 ```bash
 pip uninstall -y svt
@@ -63,8 +67,8 @@ $ svt-cli --help
 
 Results:
 
-![Original image](landscape.jpg?raw=true 'Original image')
+![Original image](landscape.jpg?raw=true "Original image")
 
-![Impaired image](assets/impaired.png?raw=true 'Impaired image')
+![Impaired image](assets/impaired.png?raw=true "Impaired image")
 
-![Recovered image](assets/recovered.png?raw=true 'Recovered image')
+![Recovered image](assets/recovered.png?raw=true "Recovered image")
