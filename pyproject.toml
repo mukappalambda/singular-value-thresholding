@@ -22,3 +22,7 @@ svt-cli = "svt.cli:app"
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.group.dev.dependencies]
+ruff = ">=0.11"
+
