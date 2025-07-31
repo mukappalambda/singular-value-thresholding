@@ -40,6 +40,8 @@ def svt_solver(
     # r_prev = 0
     r_prev = k0
     print(r_prev)
+    prev_err = np.inf
+    best_X = X[:]
 
     for i in range(n_iters):
         k = r_prev + 1
@@ -72,8 +74,12 @@ def svt_solver(
         # Stopping criteria, see Eq. (5.5)
         err = frob_norm(mask * (X - M)) / frob_norm(mask * M)
         print(f"Iteration: {i}; r_prev: {r_prev}; err: {err:.6f}")
+        if err < prev_err:
+            prev_err = err
+            best_X = X[:]
 
         if err <= tol:
             break
 
-    return X
+    print(f"Best error: {prev_err}")
+    return best_X
